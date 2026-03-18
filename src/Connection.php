@@ -61,7 +61,7 @@ class Connection
 
         while (true) {
             $message = null;
-            $line = stream_get_line($this->socket, 1024, "\r\n");
+            $line = ltrim(stream_get_line($this->socket, 1024, "\r\n"));
             $now = microtime(true);
             if ($line) {
                 $message = Factory::create($line);
